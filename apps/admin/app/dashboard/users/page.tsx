@@ -5,8 +5,9 @@ import Image from "next/image";
 import Pagination from "@/app/ui/dashboard/pagination/pagination";
 import { fetchUsers } from "@/app/lib/DB/data";
 
-export default async function Users() {
-  const users = await fetchUsers();
+export default async function Users({ searchParams }: any) {
+  const q = searchParams?.q ?? "";
+  const users = await fetchUsers(q);
   console.log(users);
   return (
     <div className={styles.container}>
@@ -33,17 +34,18 @@ export default async function Users() {
               <td>
                 <div className={styles.user}>
                   <Image
-                    src={user.img ? user.img : "/avatar.png"}
+                    // src={user.img ? user.img : "/avatar.png"}
+                    src="/avatar.png"
                     alt=""
                     width={40}
                     height={40}
                     className={styles.userImage}
                   />
-                  {user.name} {/* Assuming 'name' is the correct property */}
+                  {user.name ?? "unknown"}
                 </div>
               </td>
               <td>{user.email}</td>
-              <td>{user.createdAt}</td>
+              <td>{user.createdAt || "no Date"}</td>
               <td>{user.isAdmin ? "Admin" : "Client"}</td>
               <td>{user.isActive ? "active" : "passive"}</td>
               <td>

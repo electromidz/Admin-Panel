@@ -38,6 +38,9 @@ importers:
       recharts:
         specifier: 2.9.0
         version: 2.9.0(prop-types@15.8.1)(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
+      use-debounce:
+        specifier: 9.0.4
+        version: 9.0.4(react@18.2.0)
     devDependencies:
       '@types/node':
         specifier: ^20
@@ -3109,6 +3112,12 @@ packages:
 
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
+
+  use-debounce@9.0.4:
+    resolution: {integrity: sha512-6X8H/mikbrt0XE8e+JXRtZ8yYVvKkdYRfmIhWZYsP8rcNs9hk3APV8Ua2mFkKRLcJKVdnX2/Vwrmg2GWKUQEaQ==}
+    engines: {node: '>= 10.0.0'}
+    peerDependencies:
+      react: '>=16.8.0'
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
@@ -6602,6 +6611,10 @@ snapshots:
   uri-js@4.4.1:
     dependencies:
       punycode: 2.3.0
+
+  use-debounce@9.0.4(react@18.2.0):
+    dependencies:
+      react: 18.2.0
 
   util-deprecate@1.0.2: {}
 
