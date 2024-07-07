@@ -3,8 +3,13 @@ import styles from "@/app/ui/dashboard/products/products.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import Pagination from "@/app/ui/dashboard/pagination/pagination";
+import { fetchProducts } from "@/app/lib/DB/data";
 
-export default function Products() {
+export default async function Products({searchParams}) {
+  const q = searchParams?.q ?? "";
+  const page = searchParams?.page || 1;
+  const {count , products} = await fetchProducts(q, page);
+
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -25,31 +30,33 @@ export default function Products() {
           </tr>
         </thead>
         <tbody>
-          <tr>
+        {products.map((product:any)=> (
+          <tr key={product.id}>
             <td>
               <div className={styles.product}>
                 <Image
+                  //src={product.img ? product.img : "/noproduct.webp"}
                   src="/noproduct.webp"
                   alt=""
                   width={40}
                   height={40}
                   className={styles.userProduct}
                 />
-                iPhone 13
+                  {product.title ?? "title"}
               </div>
             </td>
-            <td>Description</td>
-            <td>$999</td>
-            <td>13.02.2024</td>
-            <td>72</td>
+            <td>{product.desc ?? "No data"}</td>
+            <td>${product.price ?? '0'}</td>
+            <td>{product.createdAt || "No Date"}</td>
+            <td>{product.stock ?? 0}</td>
             <td>
               <div className={styles.buttons}>
-                <Link href="/dashboard/products/test">
+                <Link href={`/dashboard/products/${product.id}`}>
                   <button className={`${styles.button} ${styles.view}`}>
                     View
                   </button>
                 </Link>
-                <Link href="/">
+                <Link href={`/dashboard/products/devete/${product.di}`}>
                   <button className={`${styles.button} ${styles.delete}`}>
                     Delete
                   </button>
@@ -57,9 +64,10 @@ export default function Products() {
               </div>
             </td>
           </tr>
+        ))}
         </tbody>
       </table>
-      <Pagination />
+      <Pagination count={count}/>
     </div>
   );
 }

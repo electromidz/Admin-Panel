@@ -7,8 +7,9 @@ import { fetchUsers } from "@/app/lib/DB/data";
 
 export default async function Users({ searchParams }: any) {
   const q = searchParams?.q ?? "";
-  const users = await fetchUsers(q);
-  console.log(users);
+  const page = searchParams?.page || 1;
+  const {count , users} = await fetchUsers(q, page);
+
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -45,7 +46,7 @@ export default async function Users({ searchParams }: any) {
                 </div>
               </td>
               <td>{user.email}</td>
-              <td>{user.createdAt || "no Date"}</td>
+              <td>{user.createdAt || "No Date"}</td>
               <td>{user.isAdmin ? "Admin" : "Client"}</td>
               <td>{user.isActive ? "active" : "passive"}</td>
               <td>
@@ -66,7 +67,7 @@ export default async function Users({ searchParams }: any) {
           ))}
         </tbody>
       </table>
-      <Pagination />
+      <Pagination  count={count}/>
     </div>
   );
 }
