@@ -5,3 +5,28 @@
   [1m[38;2;173;127;168m▲ Next.js 14.2.4[39m[22m
 
  [37m[1m [22m[39m Creating an optimized production build ...
+Failed to compile.
+
+./app/dashboard/users/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+    ,-[[36;1;4m/home/o/Documents/Project/Admin-Panel/apps/admin/app/dashboard/users/page.tsx[0m:11:1]
+ [2m11[0m |   const { count, users } = await fetchUsers(q, page);
+ [2m12[0m | 
+ [2m13[0m |   return (
+ [2m14[0m |     <div className={styles.container}>
+    : [31;1m     ^^^[0m
+ [2m15[0m |       <div className={styles.top}>
+ [2m16[0m |         <Search placeholder="Search for a user" />
+ [2m17[0m |         <Link href="/dashboard/users/add">
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/dashboard/users/page.tsx
+
+
+> Build failed because of webpack errors
+[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 1.[39m

@@ -1,34 +1,42 @@
-'use client'
+"use client";
 import styles from "./pagination.module.css";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-export default function Pagination({count}:number) {
-const searchParams = useSearchParams();
+export default function Pagination({ count }: any) {
+  const searchParams = useSearchParams();
   const { replace } = useRouter();
   const pathname = usePathname();
 
-  const page = searchParams.get('page') || 1
+  const page = searchParams.get("page") || 1;
 
-  const params= new URLSearchParams()
-  const ITEM_PER_PAGE =2
+  const params = new URLSearchParams();
+  const ITEM_PER_PAGE = 2;
 
-  const hasPrev = ITEM_PER_PAGE * (parseInt(page)-1) > 0
-  const hasNext = ITEM_PER_PAGE * (parseInt(page)-1)  +ITEM_PER_PAGE < count
+  const hasPrev = ITEM_PER_PAGE * (parseInt(page) - 1) > 0;
+  const hasNext = ITEM_PER_PAGE * (parseInt(page) - 1) + ITEM_PER_PAGE < count;
 
-  const handleChangePage = (type:'prev' | "next") => {
-    type === 'prev' ? params.set('page', parseInt(page) -1) :params.set('page', parseInt(page) +1)
-    replace(`${pathname}?${params}`)
-  }
+  const handleChangePage = (type: "prev" | "next") => {
+    type === "prev"
+      ? params.set("page", parseInt(page) - 1)
+      : params.set("page", parseInt(page) + 1);
+    replace(`${pathname}?${params}`);
+  };
   return (
     <div className={styles.container}>
-      <button className={styles.button} disabled={!hasPrev} 
+      <button
+        className={styles.button}
+        disabled={!hasPrev}
         onClick={() => handleChangePage("prev")}
       >
         Previus
       </button>
-      <button className={styles.button} disabled={!hasNext}
+      <button
+        className={styles.button}
+        disabled={!hasNext}
         onClick={() => handleChangePage("next")}
-      >next</button>
+      >
+        next
+      </button>
     </div>
   );
 }

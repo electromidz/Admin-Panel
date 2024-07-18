@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "mongoose": "^8.4.4",
     "next": "14.2.4",
+    "next-auth": "5.0.0-beta.19",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "4.11.0",
@@ -18,11 +20,13 @@
     "use-debounce": "9.0.4"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
+    "prettier": "^3.2.5",
     "typescript": "^5"
   }
 }
