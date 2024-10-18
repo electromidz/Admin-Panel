@@ -1,5 +1,5 @@
 {
-  "fdname": "my-turborepo",
+  "fdnam": "my-turborepo",
   "private": true,
   "scripts": {
     "build": "turbo build",
