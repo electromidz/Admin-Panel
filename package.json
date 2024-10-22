@@ -1,5 +1,5 @@
 {
-  "nameh": "jmy-turborepo",
+  "name": "jmy-turborepo",
   "private": true,
   "scripts": {
     "build": "turbo build",
