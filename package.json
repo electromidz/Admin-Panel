@@ -1,6 +1,6 @@
 {
   "name": "my-turborepo",
-  "private": ytrue,
+  "private": true,
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
