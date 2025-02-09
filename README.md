@@ -1,6 +1,6 @@
 # TurboRepo Project
 
-Welcome to the TurboRepo Project! This repository is built with Next.js, MongoDB, and NextAuth for authentication. The project also includes an admin panel for managing data. MongoDB is run using Docker for easy setup and management.
+wWelcome to the TurboRepo Project! This repository is built with Next.js, MongoDB, and NextAuth for authentication. The project also includes an admin panel for managing data. MongoDB is run using Docker for easy setup and management.
 
 ## Table of Contents
 
